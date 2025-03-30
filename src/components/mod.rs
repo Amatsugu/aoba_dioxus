@@ -1,8 +1,4 @@
-mod hero;
-pub use hero::Hero;
-
+mod main_layout;
 mod navbar;
+pub use main_layout::MainLayout;
 pub use navbar::Navbar;
-
-mod echo;
-pub use echo::Echo;

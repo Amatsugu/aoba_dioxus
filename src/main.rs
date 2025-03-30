@@ -1,27 +1,26 @@
 use dioxus::prelude::*;
 
-use components::Navbar;
-use views::{Blog, Home};
+use components::MainLayout;
+use views::*;
 
 mod components;
 mod db;
+mod models;
 mod views;
 
 #[derive(Debug, Clone, Routable, PartialEq)]
-#[rustfmt::skip]
 enum Route {
-    #[layout(Navbar)]
-    #[route("/")]
-    Home {},
-    #[route("/blog/:id")]
-    Blog { id: i32 },
+	#[layout(MainLayout)]
+	#[route("/")]
+	Home {},
+	#[route("/settings")]
+	Settings {},
 }
 
-const FAVICON: Asset = asset!("/assets/favicon.ico");
-const MAIN_CSS: Asset = asset!("/assets/styling/main.css");
+const MAIN_CSS: Asset = asset!("/assets/style/main.scss");
 
 fn main() {
-	LaunchBuilder::new().launch(App);
+	dioxus::launch(App);
 }
 
 #[component]
@@ -30,8 +29,13 @@ fn App() -> Element {
 
 	rsx! {
 		// Global app resources
-		document::Link { rel: "icon", href: FAVICON }
+		document::Link { rel: "preconnect", href: "https://fonts.googleapis.com" }
+		document::Link { rel: "preconnect", href: "https://fonts.gstatic.com" }
 		document::Link { rel: "stylesheet", href: MAIN_CSS }
+		document::Link {
+			rel: "stylesheet",
+			href: "https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap",
+		}
 
 
 		Router::<Route> {}

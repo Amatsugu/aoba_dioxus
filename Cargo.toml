@@ -9,6 +9,8 @@ edition = "2021"
 [dependencies]
 dioxus = { version = "0.6.0", features = ["router", "fullstack"] }
 mongodb = { version = "3.2.3", optional = true }
+serde = "1.0.219"
+serde_repr = "0.1.20"
 tokio = { version = "1.44.1", optional = true }
 
 [features]
