@@ -20,6 +20,11 @@ body {
 
 #main {
 	display: grid;
-	grid-template-columns: 40px 1fr;
+	grid-template-columns: $navBarSize 1fr;
 	grid-template-areas: "Nav Content";
+}
+
+#content {
+	grid-area: Content;
+	margin-left: $navBarSize;
 }

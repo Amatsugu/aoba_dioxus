@@ -1,4 +1,4 @@
-$navBarSize: var(--navBarSize);
+$navBarSize: 40px;
 
 @mixin mobile {
 	@media (max-width: 700px) {

@@ -9,16 +9,18 @@ use mongodb::bson::doc;
 pub fn Home() -> Element {
 	let images = use_server_future(get_images)?.value().cloned();
 	rsx! {
-		"This is home"
-		for img in images.unwrap().unwrap() {
-			MediaDisplay { media: img }
+		div { id: "content",
+			"This is home"
+			for img in images.unwrap().unwrap() {
+				MediaDisplay { media: img }
+			}
 		}
 	}
 }
 #[component]
 fn MediaDisplay(media: MediaViewModel) -> Element {
 	rsx! {
-		div {}
+		div { "{media.id}" }
 	}
 }
 

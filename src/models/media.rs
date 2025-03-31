@@ -6,7 +6,7 @@ use serde_repr::{Deserialize_repr, Serialize_repr};
 #[cfg(feature = "server")]
 #[derive(Serialize, Deserialize, Clone, PartialEq)]
 pub struct Media {
-	#[serde(alias = "id")]
+	#[serde(rename = "_id")]
 	pub id: ObjectId,
 	#[serde(alias = "MediaId")]
 	pub media_id: ObjectId,
